@@ -17,7 +17,7 @@ module.exports = {
   // 默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。
   filenameHashing: false,
   // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。这个值会在 @vue/cli-plugin-eslint 被安装之后生效。
-  lintOnSave: process.env.NODE_ENV !== "production",
+  lintOnSave: false, //process.env.NODE_ENV !== "production"
 
   //是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。
   runtimeCompiler: false,

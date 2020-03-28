@@ -1,5 +1,5 @@
 <template>
-   <div class="about">
+   <div class="control">
       <div class="left">
          <Aside></Aside>
       </div>
@@ -26,8 +26,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
-   height: 100%;
+.control {
+   height: 100vh;
+   overflow: hidden;
+   box-sizing: border-box;
    display: flex;
    .right {
       flex: 1;;

@@ -66,11 +66,14 @@
             </el-form-item>
          </el-form>
       </div>
+      <button>{{msg}}</button>
    </div>
 </template>
 <script>
+import cookie from 'vue-cookies';
 import { ApiGetSms, ApiRegister } from ".././api/loginApi.js";
 import { passWord, email } from "../util/verify.js";
+import { getToken } from "../util/cookie";
 
 export default {
    data() {
@@ -147,9 +150,13 @@ export default {
          } else {
             return "登录";
          }
-      }
+      },
+       msg(){
+          return getToken();  
+      },
    },
    methods: {
+
       //点击登录、注册
       showbg(item) {
          // 改变点击时登录注册的背景颜色
@@ -260,9 +267,10 @@ export default {
                      code: this.ruleForm.code
                   };
                   this.$store
-                     .dispatch("storeOne/Aclogin", userdata)
+                     .dispatch("storeOne/login", userdata)
                      .then(res => {
                         console.log("这里是login");
+                        this.$router.push('/control')
                         console.log(res);
                      });
                }
